@@ -3,7 +3,7 @@
 ## Cara Penggunaan
 1.  Download inventory-app dengan klik `Clone or Download` pilih Download ZIP.
 2.  Ekstrak file .zip dengan Ekstrak here, maka didapat folder <b>inventory-app-master</b>
-3.  Download dan install XAMPP, link `https://www.apachefriends.org/download.html`.
+3.  Download dan install XAMPP, link <a href="https://www.apachefriends.org/download.html">https://www.apachefriends.org/download.html</a>.
 4.  Copy atau pindahkan <b>inventory-app-master</b> kedalam folder instalasi xampp\htdocs, secara default seperti ini C:\xampp\htdocs. Folder inventory-app-master dimasukkan ke dalam folder htdocs.
 5.  Buka XAMPP, kemudian tekan Start pada bagian Apache dan MySQL.
 6.  Buka Browser, kemudian masuk ke phpmyadmin dengan alamat `localhost/phpmyadmin/`.
