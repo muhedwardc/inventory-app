@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link type="text/css" rel="stylesheet" href="assets/style.css">
+        <title>Inventory App</title>
+    </head>
+    <body>
+        
+        <div class="top">
+        </div>
+        
+        <div class="bottom">
+            <div class="add">
+                <div class="add__container">
+                    <select class="add__type">
+                        <option value="plus" selected>+</option>
+                        <option value="min">-</option>
+                    </select>
+                    <input type="text" class="add__title" placeholder="title" value="coba">
+                    <input type="number" class="add__quantity" value=3>
+                    <select class="measure">
+                        <option value="kg" selected>kg</option>
+                        <option value="m">m</option>
+                        <option value="buah">buah</option>
+                    </select>
+                    <button type="submit" class="add__btn" onclick="saveData()">
+                        <img src="assets/icons/add.png"> Tambah
+                    </button>
+                </div>
+            </div>
+            
+            <div class="container clearfix">
+                <h2 class="title">Inventory</h2>
+                <div class="list">   
+                </div>
+            </div>
+        </div>
+        <!-- <script src="app.js"></script> -->
+        <script src="assets/jquery-3.3.1.min.js"></script>
+        <script src="assets/app.js"></script>
+    </body>
+</html>
