@@ -1,5 +1,5 @@
 loadData();
-let allItem = '';
+let allItem = new Object();    
 
 function itemClicked() {
     if (event.target.className == 'delete-btn') {
@@ -15,15 +15,6 @@ function itemClicked() {
             }
         });
     };
-}
-
-function saveData() {
-    let type = $('.add__type').val();
-    let title = $('.add__title').val().toLowerCase();
-    let quantity = Number($('.add__quantity').val());
-    let measure = $('.measure').val();
-
-    checkExistency(type, title, quantity, measure);
 }
 
 function loadData() {
@@ -47,8 +38,18 @@ function loadData() {
     })
 }
 
+function saveData() {
+    loadData();
+    let type = $('.add__type').val();
+    let title = $('.add__title').val().toLowerCase();
+    let quantity = Number($('.add__quantity').val());
+    let measure = $('.measure').val();
+
+    checkExistency(type, title, quantity, measure);
+}
+
 function checkExistency(type, title, quantity, measure) {
-    let exist = false
+    let exist = false;
     allItem.forEach(item => {
         if (item["nama"] == title) {
             if (item["satuan"] != measure) {

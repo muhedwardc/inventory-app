@@ -32,5 +32,8 @@
         $nama = $_GET['n'];
 
         $conn -> query ("DELETE FROM item WHERE nama='".$nama."'");
+    } else if ($page == 'deleteall') {
+        $conn -> query ("DELETE FROM item");
+        $conn -> query ("ALTER TABLE item AUTO_INCREMENT = 0");
     }
 ?>
