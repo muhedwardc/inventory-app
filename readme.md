@@ -13,6 +13,6 @@
 
 ## Cara Testing
 1.  Buka Localhost aplikasi.
-2.  Buka Console DevTools pada browser dengan `click kanan > inspect element > pilih tab console` atau tekan tombol <b>ctrl + shift + j</b>.
+2.  Buka Console DevTools pada browser dengan `klik kanan > inspect element > pilih tab console` atau tekan tombol <b>ctrl + shift + j</b>.
 3.  Tuliskan perintah `setInput(<kuantitas pengecekan>, <kecepatan per sekali input dalam milisecond>)`. Contohnya <b>setInput(100, 20);</b> maka akan dilakukan input sebanyak 100 kali dengan kecepatan 20ms setiap satu kali inputnya.
 4.  Gunakan perintah <b>deleteAll();</b> untuk menghapus seluruh data pada database dan memulai dari awal lagi.
