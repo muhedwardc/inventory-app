@@ -5,15 +5,7 @@ function itemClicked() {
     if (event.target.className == 'delete-btn') {
         let parentDiv = event.target.parentNode.parentNode.parentNode.parentNode;
         let nama = parentDiv.childNodes[0].textContent;
-
-        $.ajax({
-            type: 'GET',
-            url: 'server.php?p=delete',
-            data: 'n=' + nama,
-            success: function() {
-                loadData();
-            }
-        });
+        deleteItem(nama);
     };
 }
 
@@ -44,24 +36,38 @@ function saveData() {
     let title = $('.add__title').val().toLowerCase();
     let quantity = Number($('.add__quantity').val());
     let measure = $('.measure').val();
+    
+    let validatedInput = validateInput(type, title, quantity, measure);
+    validatedInput ? checkExistency(type, title, quantity, measure) : null;
+}
 
-    checkExistency(type, title, quantity, measure);
+function validateInput(type, title, quantity, measure) {
+    if (type && title.length !== 0 && quantity > 0 && measure) {
+        return true;
+    } else {
+        alert("Input salah");
+        return false;
+    }
 }
 
 function checkExistency(type, title, quantity, measure) {
     let exist = false;
+    let sameValue = false;
     allItem.forEach(item => {
         if (item["nama"] == title) {
             if (item["satuan"] != measure) {
                 alert("satuan yang dimasukkan tidak sama");
                 exist = true;
-            } else if (type == "min" && quantity > Number(item["kuantitas"])) {
+            } else if (type === "min" && quantity > Number(item["kuantitas"])) {
                 alert("Kuantitas barang tidak mencukupi");
                 exist = true;
-            } else if (type == "min" && quantity <= Number(item["kuantitas"])) {
+            } else if (type === "min" && quantity === Number(item["kuantitas"])) {
+                exist = true;
+                sameValue = true;
+            } else if (type === "min" && quantity <= Number(item["kuantitas"])) {
                 updateItem(type, title, Number(item["kuantitas"]), measure, quantity);
                 exist = true;
-            } else if (type == "plus") {
+            } else if (type === "plus") {
                 updateItem(type, title, Number(item["kuantitas"]), measure, quantity);
                 exist = true;
             }
@@ -70,6 +76,10 @@ function checkExistency(type, title, quantity, measure) {
 
     if (!exist && type == "plus") addItem(title, quantity, measure);
     else if (!exist && type == "min") alert("anda tidak bisa mengurangi barang yang belum ada");
+    else if (exist && sameValue && type == "min") {
+        deleteItem(title);
+        alert("barang habis");
+    }
 }
 
 function addItem(title, quantity, measure) {
@@ -94,4 +104,15 @@ function updateItem(type, title, currquantity, measure, newquantity) {
             loadData();
         }
     })
+}
+
+function deleteItem(nama) {
+    $.ajax({
+        type: 'GET',
+        url: 'server.php?p=delete',
+        data: 'n=' + nama,
+        success: function() {
+            loadData();
+        }
+    });
 }

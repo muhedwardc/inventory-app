@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2018 at 02:07 PM
+-- Generation Time: May 14, 2018 at 10:06 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -31,18 +31,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `item` (
   `id` int(5) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `kuantitas` int(11) NOT NULL,
+  `kuantitas` float NOT NULL,
   `satuan` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `item`
---
-
-INSERT INTO `item` (`id`, `nama`, `kuantitas`, `satuan`) VALUES
-(30, 'indomie soto', 3, 'buah'),
-(31, 'indomie ayam', 3, 'buah'),
-(32, 'indomie rebus', 8, 'buah');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +53,7 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
