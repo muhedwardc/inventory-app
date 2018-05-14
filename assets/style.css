@@ -9,7 +9,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 .clearfix::after {
@@ -38,13 +39,19 @@ body {
     font-size: 20pt;
     font-weight: 600;
     letter-spacing: 1px;
-    background: #642B73;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
+    background: #642B73;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-gradient(linear, left top, right top, from(#C6426E), to(#642B73));
     background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 /**********************************************
@@ -61,8 +68,12 @@ body {
 .add__container {
     margin: 0 auto;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .add__type, .measure {
@@ -74,6 +85,7 @@ body {
     background-color: #fff;
     margin-right: 10px;
     font-weight: 300;
+    -webkit-transition: border 0.3s;
     transition: border 0.3s;
 }
 
@@ -91,6 +103,7 @@ body {
     padding: 12px 15px;
     margin-right: 10px;
     border-radius: 5px;
+    -webkit-transition: border 0.3s;
     transition: border 0.3s;
 }
 
@@ -109,8 +122,12 @@ body {
     vertical-align: middle;
     line-height: 1.1;
     margin-left: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .add__btn img {
@@ -119,7 +136,7 @@ body {
     width: 25px;
 }
 
-.add__btn:active { transform: translateY(2px); }
+.add__btn:active { -webkit-transform: translateY(2px); transform: translateY(2px); }
 
 .add__type:focus,
 .add__title:focus,
@@ -157,7 +174,10 @@ h2 {
 
 .item__value {
     float: left;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 .item__delete--btn {
@@ -182,7 +202,7 @@ h2 {
 }
 
 .item__delete--btn:focus { outline: none; }
-.item__delete--btn:active { transform: translateY(2px); }
+.item__delete--btn:active { -webkit-transform: translateY(2px); transform: translateY(2px); }
 
 .item:hover .item__delete--btn { display: block; }
-.item:hover .item__value { transform: translateX(-20px); }
+.item:hover .item__value { -webkit-transform: translateX(-20px); transform: translateX(-20px); }
